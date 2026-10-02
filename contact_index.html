@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FarmConnect Bangladesh - Contact Center</title>
+  <link rel="stylesheet" href="contact_style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>FarmConnect Bangladesh</h1>
+      <p>Connect Farmers, Customers & Organization Staff Effortlessly</p>
+    </header>
+
+    <div class="main-layout">
+      <div class="left-content">
+        <!-- Contact Farmers Table -->
+        <section class="contact-section">
+          <h2>Contact a Farmer</h2>
+          <button onclick="addRow('farmers-table')">+ Add Farmer</button>
+          <table id="farmers-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Product</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Abdul Karim</td>
+                <td>Jessore</td>
+                <td>Jute</td>
+                <td>01711-123456</td>
+                <td>
+                  <button onclick="startVideoCall()">📹</button>
+                  <button onclick="startAudioCall()">🎧</button>
+                  <button onclick="openChat()">💬</button>
+                  <button onclick="editRow(this)">✏️</button>
+                  <button onclick="deleteRow(this)">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Fatema Begum</td>
+                <td>Barisal</td>
+                <td>Rice</td>
+                <td>01822-987654</td>
+                <td>
+                  <button onclick="startVideoCall()">📹</button>
+                  <button onclick="startAudioCall()">🎧</button>
+                  <button onclick="openChat()">💬</button>
+                  <button onclick="editRow(this)">✏️</button>
+                  <button onclick="deleteRow(this)">🗑️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Contact Organization Staff Table -->
+        <section class="contact-section">
+          <h2>Contact Organization Staff</h2>
+          <button onclick="addRow('staff-table')">+ Add Staff</button>
+          <table id="staff-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Department</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Shakil Ahmed</td>
+                <td>Manager</td>
+                <td>Logistics</td>
+                <td>01633-222111</td>
+                <td>
+                  <button onclick="startVideoCall()">📹</button>
+                  <button onclick="startAudioCall()">🎧</button>
+                  <button onclick="openChat()">💬</button>
+                  <button onclick="editRow(this)">✏️</button>
+                  <button onclick="deleteRow(this)">🗑️</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Nasima Akter</td>
+                <td>Support Officer</td>
+                <td>Farmer Helpdesk</td>
+                <td>01999-554433</td>
+                <td>
+                  <button onclick="startVideoCall()">📹</button>
+                  <button onclick="startAudioCall()">🎧</button>
+                  <button onclick="openChat()">💬</button>
+                  <button onclick="editRow(this)">✏️</button>
+                  <button onclick="deleteRow(this)">🗑️</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+
+      <!-- Live Consultation Box -->
+      <aside class="live-consultation-box">
+        <h3>📞 Live Consultation</h3>
+        <p>Quick support for farmers and customers in বাংলা</p>
+        <button onclick="startVideoCall()">Start Video Call</button>
+        <button onclick="startAudioCall()">Send Audio Message</button>
+        <button onclick="openChat()">বাংলা Chat</button>
+      </aside>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 FarmConnect Bangladesh. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Video Call Scene -->
+  <div id="video-call-scene" class="call-scene" style="display: none;">
+    <div class="call-box">
+      <h2>📹 Video Call in Progress</h2>
+      <p>Connecting to recipient...</p>
+      <button onclick="closeCallScene()">❌ End Call</button>
+    </div>
+  </div>
+
+  <!-- Audio Call Scene -->
+  <div id="audio-call-scene" class="call-scene" style="display: none;">
+    <div class="call-box">
+      <h2>🎧 Audio Call in Progress</h2>
+      <p>Connecting to recipient...</p>
+      <button onclick="closeCallScene()">❌ End Call</button>
+    </div>
+  </div>
+
+  <!-- Chat Box -->
+  <div id="chat-box" class="chat-box" style="display: none;">
+    <div class="chat-header">
+      <span>💬 বাংলা Chat Support</span>
+      <button onclick="closeChat()">❌</button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <p><em>Support Agent joined the chat...</em></p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script src="contact_script.js"></script>
+</body>
+</html>
